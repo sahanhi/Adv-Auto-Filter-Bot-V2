@@ -35,7 +35,7 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    'Developers', url="https://t.me/CrazyBotsz"
+                                    '𝐉𝐎𝐈𝐍 𝐔𝐒', url="https://t.me/Gataya_Official"
                                 )
                         ]
                     ]
@@ -47,13 +47,12 @@ async def start(bot, update):
         return
 
     buttons = [[
-        InlineKeyboardButton('Developers', url='https://t.me/CrazyBotsz'),
-        InlineKeyboardButton('Source Code 🧾', url ='https://github.com/CrazyBotsz/Adv-Auto-Filter-Bot-V2')
-    ],[
-        InlineKeyboardButton('Support 🛠', url='https://t.me/CrazyBotszGrp')
-    ],[
-        InlineKeyboardButton('Help ⚙', callback_data="help")
-    ]]
+            InlineKeyboardButton('𝐉𝐎𝐈𝐍 𝐔𝐒', url='https://t.me/Gataya_Official')
+        ],[
+            InlineKeyboardButton('𝐇𝐄𝐋𝐏', callback_data="help"),
+            InlineKeyboardButton('𝐀𝐁𝐎𝐔𝐓', callback_data='about')
+            
+        ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
@@ -70,11 +69,12 @@ async def start(bot, update):
 @Client.on_message(filters.command(["help"]) & filters.private, group=1)
 async def help(bot, update):
     buttons = [[
-        InlineKeyboardButton('Home ⚡', callback_data='start'),
-        InlineKeyboardButton('About 🚩', callback_data='about')
-    ],[
-        InlineKeyboardButton('Close 🔐', callback_data='close')
-    ]]
+            InlineKeyboardButton('𝐉𝐎𝐈𝐍 𝐔𝐒', url='https://t.me/Gataya_Official')
+        ],[
+            InlineKeyboardButton('𝐇𝐎𝐌𝐄', callback_data='start'),
+            InlineKeyboardButton('𝐀𝐁𝐎𝐔𝐓', callback_data='about')
+        ]]
+    
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
@@ -91,9 +91,11 @@ async def help(bot, update):
 async def about(bot, update):
     
     buttons = [[
-        InlineKeyboardButton('Home ⚡', callback_data='start'),
-        InlineKeyboardButton('Close 🔐', callback_data='close')
-    ]]
+            InlineKeyboardButton('𝐉𝐎𝐈𝐍 𝐔𝐒', url='https://t.me/Gataya_Official')
+        ],[
+            InlineKeyboardButton('𝐇𝐎𝐌𝐄', callback_data='start'),
+            InlineKeyboardButton('𝐇𝐄𝐋𝐏', callback_data='help')
+        ]]
     reply_markup = InlineKeyboardMarkup(buttons)
     
     await bot.send_message(
