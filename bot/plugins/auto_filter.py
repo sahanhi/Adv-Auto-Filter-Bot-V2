@@ -8,7 +8,7 @@ from pyrogram.errors import ButtonDataInvalid, FloodWait
 
 from bot.database import Database # pylint: disable=import-error
 from bot.bot import Bot # pylint: disable=import-error
-
+from bot.__init__ import IMDB_TEMPLATE
 
 FIND = {}
 INVITE_LINK = {}
@@ -147,13 +147,13 @@ async def auto_filter(bot, update):
         if len_result != 1:
             result[0].append(
                 [
-                    InlineKeyboardButton("Next ⏩", callback_data=f"navigate(0|next|{query})")
+                    InlineKeyboardButton("𝐍𝐄𝐗𝐓", callback_data=f"navigate(0|next|{query})")
                 ]
             )
         
         # Just A Decaration
         result[0].append([
-            InlineKeyboardButton(f"🔰 Page 1/{len_result if len_result < max_pages else max_pages} 🔰", callback_data="ignore")
+            InlineKeyboardButton(f"𝐏𝐀𝐆𝐄 1/{len_result if len_result < max_pages else max_pages}", callback_data="ignore")
         ])
         
         
@@ -182,13 +182,13 @@ async def auto_filter(bot, update):
                 if ((len(ibuttons)%2) == 0):
                     ibuttons.append(
                         [
-                            InlineKeyboardButton(f"⚜ {chat_name} ⚜", url=invite_link)
+                            InlineKeyboardButton(f"{chat_name}", url=invite_link)
                         ]
                     )
 
                 else:
                     ibuttons[-1].append(
-                        InlineKeyboardButton(f"⚜ {chat_name} ⚜", url=invite_link)
+                        InlineKeyboardButton(f"{chat_name}", url=invite_link)
                     )
                 
             for x in ibuttons:
@@ -203,10 +203,40 @@ async def auto_filter(bot, update):
         try:
             await bot.send_message(
                 chat_id = update.chat.id,
-                text=f"Found {(len_results)} Results For Your Query: <code>{query}</code>",
-                reply_markup=reply_markup,
-                parse_mode=enums.ParseMode.HTML,
-                reply_to_message_id=update.id
+            text= IMDB_TEMPLATE.format(query=search,
+                                  title=imdb['title'],
+                                  votes=imdb['votes'],
+                                  aka=imdb["aka"],
+                                  seasons=imdb["seasons"],
+                                  box_office=imdb['box_office'],
+                                  localized_title=imdb['localized_title'],
+                                  kind=imdb['kind'],
+                                  imdb_id=imdb["imdb_id"],
+                                  cast=imdb["cast"],
+                                  runtime=imdb["runtime"],
+                                  countries=imdb["countries"],
+                                  certificates=imdb["certificates"],
+                                  languages=imdb["languages"],
+                                  director=imdb["director"],
+                                  writer=imdb["writer"],
+                                  producer=imdb["producer"],
+                                  composer=imdb["composer"],
+                                  cinematographer=imdb["cinematographer"],
+                                  music_team=imdb["music_team"],
+                                  distributors=imdb["distributors"],
+                                  release_date=imdb['release_date'],
+                                  year=imdb['year'],
+                                  genres=imdb['genres'],
+                                  poster=imdb['poster'],
+                                  plot=imdb['plot'],
+                                  rating=imdb['rating'],
+                                  url=imdb['url'],
+                                  **locals(),
+            reply_markup=reply_markup,
+            parse_mode="html",
+            reply_to_message_id=update.message_id,
+            parse_mode=enums.ParseMode.HTML,
+            reply_to_message_id=update.id
             )
 
         except ButtonDataInvalid:
