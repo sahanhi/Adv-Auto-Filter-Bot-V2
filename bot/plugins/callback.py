@@ -81,7 +81,7 @@ async def cb_navg(bot, update: CallbackQuery):
 
     if ((index_val + 1 )== max_pages) or ((index_val + 1) == len(results)): # Max Pages
         temp_results.append([
-            InlineKeyboardButton("⏪ Back", callback_data=f"navigate({index_val}|back|{query})")
+            InlineKeyboardButton("𝐁𝐀𝐂𝐊", callback_data=f"navigate({index_val}|back|{query})")
         ])
 
     elif int(index_val) == 0:
@@ -89,13 +89,13 @@ async def cb_navg(bot, update: CallbackQuery):
 
     else:
         temp_results.append([
-            InlineKeyboardButton("⏪ Back", callback_data=f"navigate({index_val}|back|{query})"),
-            InlineKeyboardButton("Next ⏩", callback_data=f"navigate({index_val}|next|{query})")
+            InlineKeyboardButton("𝐁𝐀𝐂𝐊", callback_data=f"navigate({index_val}|back|{query})"),
+            InlineKeyboardButton("𝐍𝐄𝐗𝐓", callback_data=f"navigate({index_val}|next|{query})")
         ])
 
     if not int(index_val) == 0:    
         temp_results.append([
-            InlineKeyboardButton(f"🔰 Page {index_val + 1}/{len(results) if len(results) < max_pages else max_pages} 🔰", callback_data="ignore")
+            InlineKeyboardButton(f"𝐏𝐀𝐆𝐄{index_val + 1}/{len(results) if len(results) < max_pages else max_pages}", callback_data="ignore")
         ])
     
     if show_invite and int(index_val) !=0 :
@@ -122,7 +122,7 @@ async def cb_navg(bot, update: CallbackQuery):
                     [
                         InlineKeyboardButton
                             (
-                                f"⚜ {chat_name} ⚜", url=invite_link
+                                f"{chat_name}", url=invite_link
                             )
                     ]
                 )
@@ -131,7 +131,7 @@ async def cb_navg(bot, update: CallbackQuery):
                 ibuttons[-1].append(
                     InlineKeyboardButton
                         (
-                            f"⚜ {chat_name} ⚜", url=invite_link
+                            f"{chat_name}", url=invite_link
                         )
                 )
             
@@ -142,7 +142,35 @@ async def cb_navg(bot, update: CallbackQuery):
     
     reply_markup = InlineKeyboardMarkup(temp_results)
     
-    text=f"<i>Found</i> <code>{leng}</code> <i>Results For Your Query:</i> <code>{query}</code>"
+    text=IMDB_TEMPLATE.format(query=search,
+                                  title=imdb['title'],
+                                  votes=imdb['votes'],
+                                  aka=imdb["aka"],
+                                  seasons=imdb["seasons"],
+                                  box_office=imdb['box_office'],
+                                  localized_title=imdb['localized_title'],
+                                  kind=imdb['kind'],
+                                  imdb_id=imdb["imdb_id"],
+                                  cast=imdb["cast"],
+                                  runtime=imdb["runtime"],
+                                  countries=imdb["countries"],
+                                  certificates=imdb["certificates"],
+                                  languages=imdb["languages"],
+                                  director=imdb["director"],
+                                  writer=imdb["writer"],
+                                  producer=imdb["producer"],
+                                  composer=imdb["composer"],
+                                  cinematographer=imdb["cinematographer"],
+                                  music_team=imdb["music_team"],
+                                  distributors=imdb["distributors"],
+                                  release_date=imdb['release_date'],
+                                  year=imdb['year'],
+                                  genres=imdb['genres'],
+                                  poster=imdb['poster'],
+                                  plot=imdb['plot'],
+                                  rating=imdb['rating'],
+                                  url=imdb['url'],
+                                  **locals()
         
     try:
         await update.message.edit(
@@ -1639,12 +1667,11 @@ async def callback_data(bot, update: CallbackQuery):
 
     if query_data == "start":
         buttons = [[
-            InlineKeyboardButton('My Dev 👨‍🔬', url='https://t.me/AlbertEinstein_TG'),
-            InlineKeyboardButton('Source Code 🧾', url ='https://github.com/CrazyBotsz/Adv-Filter-Bot-V2')
+            InlineKeyboardButton('𝐉𝐎𝐈𝐍 𝐔𝐒', url='https://t.me/Gataya_Official')
         ],[
-            InlineKeyboardButton('Support 🛠', url='https://t.me/CrazyBotszGrp')
-        ],[
-            InlineKeyboardButton('Help ⚙', callback_data="help")
+            InlineKeyboardButton('𝐇𝐄𝐋𝐏', callback_data="help"),
+            InlineKeyboardButton('𝐀𝐁𝐎𝐔𝐓', callback_data='about')
+            
         ]]
     
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -1659,11 +1686,12 @@ async def callback_data(bot, update: CallbackQuery):
 
     elif query_data == "help":
         buttons = [[
-            InlineKeyboardButton('Home ⚡', callback_data='start'),
-            InlineKeyboardButton('About 🚩', callback_data='about')
+            InlineKeyboardButton('𝐉𝐎𝐈𝐍 𝐔𝐒', url='https://t.me/Gataya_Official')
         ],[
-            InlineKeyboardButton('Close 🔐', callback_data='close')
+            InlineKeyboardButton('𝐇𝐎𝐌𝐄', callback_data='start'),
+            InlineKeyboardButton('𝐀𝐁𝐎𝐔𝐓', callback_data='about')
         ]]
+    
     
         reply_markup = InlineKeyboardMarkup(buttons)
         
@@ -1677,8 +1705,10 @@ async def callback_data(bot, update: CallbackQuery):
 
     elif query_data == "about": 
         buttons = [[
-            InlineKeyboardButton('Home ⚡', callback_data='start'),
-            InlineKeyboardButton('Close 🔐', callback_data='close')
+            InlineKeyboardButton('𝐉𝐎𝐈𝐍 𝐔𝐒', url='https://t.me/Gataya_Official')
+        ],[
+            InlineKeyboardButton('𝐇𝐎𝐌𝐄', callback_data='start'),
+            InlineKeyboardButton('𝐇𝐄𝐋𝐏', callback_data='help')
         ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
