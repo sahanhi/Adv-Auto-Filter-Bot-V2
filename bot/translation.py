@@ -4,55 +4,19 @@
 
 class Translation(object):
     
-    START_TEXT = """<b>Hey {}!!</b>
-<i>Am Just A Advance Auto Filter Bot....😉
-
-Just Add Me To Your Group And Channel And Connect Them And See My Pevers 🔥🔥😝
-
-For More Details Click Help Button Below..
-@CrazyBotsz
-</i>"""    
+    START_TEXT = """𝐇𝐢 {}!!
+𝐈 𝐚𝐦 𝐄𝐯𝐢𝐞. 
+𝐈 𝐚𝐦 𝐬𝐞𝐚𝐫𝐜𝐡𝐢𝐧𝐠 𝐟𝐨𝐫 𝐦𝐨𝐯𝐢𝐞 𝐟𝐢𝐥𝐞𝐬 𝐚𝐧𝐝 𝐬𝐞𝐧𝐝𝐢𝐧𝐠 𝐢𝐭 𝐭𝐨 𝐲𝐨𝐮. 𝐁𝐮𝐭 𝐈 𝐚𝐦 𝐰𝐨𝐫𝐤𝐢𝐧𝐠 𝐨𝐧𝐥𝐲 𝐢𝐧 𝐭𝐡𝐞 𝐆𝐚𝐭𝐚𝐲𝐚 𝐠𝐫𝐨𝐮𝐩𝐬."""    
     
     HELP_TEXT = """
-<b><i><u>How To Use Me!?</u></i></b>
+𝐇𝐨𝐰 𝐭𝐨 𝐮𝐬𝐞 𝐦𝐞!!
 
-<i>
--> Add Me To Any Group And Make Me Admin
--> Add Me To Your Desired Channel
-</i>
-
-<b>Bot Commands (Works Only In Groups) :</b>
-
-    -> <code>/add chat_id</code>
-                OR                  - To Connect A Group With A Channel (Bot Should Be Admin With Full Previlages In Both Group And Channel)
-     <code>/add @Username</code>
-     
-    -> <code>/del chat_id</code>
-                OR                  - To disconnect A Group With A Channel
-     <code>/del @Username</code>
-     
-    -> <code>/delall</code>  - This Command Will Disconnect All Connected Channel With The Group And Deletes All Its File From DB
-    
-    -> <code>/settings</code> -  This Command Will Display You A Settings Pannel Instance Which Can Be Used To Tweek Bot's Settings Accordingly
-
-            -> <code>Channel</code> - Button Will Show You All The Connected Chats With The Group And Will Show Buttons Correspnding To There Order For Furthur Controls
-            
-            -> <code>Filter Types</code> - Button Will Show You The 3 Filter Option Available In Bot... Pressing Each Buttons Will Either Enable or Disable Them And This Will Take Into Action As Soon As You Use Them Without The Need Of A Restart
-
-            -> <code>Configure</code> - Button Will Helps You To Change No. of Pages/ Buttons Per Page/ Total Result Without Acutally Editing The Repo... Also It Provide Option To Enable/Disable For Showing Invite Link In Each Results
-            
-            -> <code>Status</code> - Button Will Shows The Stats Of Your Channel
-            
-@CrazyBotsz
+𝐒𝐞𝐧𝐝 𝐭𝐡𝐞 𝐜𝐨𝐫𝐫𝐞𝐜𝐭 𝐧𝐚𝐦𝐞 𝐨𝐟 𝐭𝐡𝐞 𝐦𝐨𝐯𝐢𝐞. 
+𝐀𝐧𝐝 𝐜𝐥𝐢𝐜𝐤 𝐨𝐧 𝐭𝐡𝐞 𝐟𝐢𝐥𝐦 𝐧𝐚𝐦𝐞.
 """
     
-    ABOUT_TEXT = """<b>➥ Name</b> : <code> Auto Filter Bot</code>
-    
-<b>➥ Creator</b> : <b><i><a href="https://t.me/AlbertEinstein_TG">AlbertEinstein_TG</a></i></b>
-
-<b>➥ Language</b> : <code>Python3</code>
-
-<b>➥ Library</b> : <i><a href="https://docs.pyrogram.org">Pyrogram Asyncio 1.13.0 </a></i>
-
-<b>➥ Source Code</b> : <i><a href="https://github.com/AlbertEinsteinTG/Adv-Auto-Filter-Bot">Click Me</a></i>
+    ABOUT_TEXT = """➡️ 𝐈 𝐚𝐦 𝐄𝐯𝐢𝐞.
+➡️ 𝐔𝐬𝐢𝐧𝐠 𝐩𝐲𝐭𝐡𝐨𝐧.
+➡️ 𝐇𝐨𝐬𝐭𝐞𝐝 𝐛𝐲 𝐎𝐫𝐚𝐜𝐥𝐞.
+➡️ 𝐔𝐬𝐢𝐧𝐠 𝐢𝐧 𝐆𝐚𝐭𝐚𝐲𝐚.
 """
